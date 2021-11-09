@@ -1,0 +1,52 @@
+const items = document.querySelector('.items');
+const input = document.querySelector('.footer__input');
+const addBtn = document.querySelector('.footer__btn');
+
+function onAdd() {
+    const text = input.value;
+
+    const item = createItem(text);
+    items.appendChild(item);
+    item.scrollIntoView({block: 'center'});
+    input.value = '';
+    input.focus();
+}
+
+function createItem(text) {
+    const itemRow = document.createElement('li'); 
+    itemRow.setAttribute('class', 'item__row');
+
+    const item = document.createElement('div');
+    item.setAttribute('class', 'item');
+
+    const name = document.createElement('span');
+    name.setAttribute('class', 'item__name');
+    name.innerTEXT = text;
+
+     const deleteBtn = document.createElement('button');
+     deleteBtn.setAttribute('class', 'item__delete');
+     deleteBtn.innerHTML = '<img src="image/trush.png" alt="">'
+     deleteBtn.addEventListener('click', () => {
+        items.removeChild(itemRow)
+     })
+
+     const divide = document.createElement('div');
+     divide.setAttribute('class', 'divide');
+
+     item.appendChild(name);
+     item.appendChild(deleteBtn);
+
+     itemRow.appendChild(item);
+     itemRow.appendChild(divide);
+     return itemRow;
+}
+
+addBtn.addEventListener('click', () => {
+    onAdd()
+});
+
+input.addEventListener('keypress', event => {
+    if (event.key === 'Enter') {
+        onAdd();
+    };
+});
