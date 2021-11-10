@@ -4,7 +4,10 @@ const addBtn = document.querySelector('.footer__btn');
 
 function onAdd() {
     const text = input.value;
-
+    if(text === '') {
+        return;
+        input.focus();
+    }
     const item = createItem(text);
     items.appendChild(item);
     item.scrollIntoView({block: 'center'});
@@ -21,17 +24,17 @@ function createItem(text) {
 
     const name = document.createElement('span');
     name.setAttribute('class', 'item__name');
-    name.innerTEXT = text;
+    name.innerText = text;
 
      const deleteBtn = document.createElement('button');
      deleteBtn.setAttribute('class', 'item__delete');
-     deleteBtn.innerHTML = '<img src="image/trush.png" alt="">'
+     deleteBtn.innerHTML = '<img src="image/trash-can.png" alt="">'
      deleteBtn.addEventListener('click', () => {
-        items.removeChild(itemRow)
-     })
+        items.removeChild(itemRow);  
+     });
 
      const divide = document.createElement('div');
-     divide.setAttribute('class', 'divide');
+     divide.setAttribute('class', 'item__divider');
 
      item.appendChild(name);
      item.appendChild(deleteBtn);
@@ -42,7 +45,7 @@ function createItem(text) {
 }
 
 addBtn.addEventListener('click', () => {
-    onAdd()
+    onAdd();
 });
 
 input.addEventListener('keypress', event => {

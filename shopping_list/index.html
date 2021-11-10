@@ -9,20 +9,23 @@
     <script src="main.js" defer></script>
 </head>
 <body>
-        <div class="wrapping">
-            <div class="head">Shopping List</div>
-            <div class="shopping_list">
-                <ul>
-                    <li class="item">
-                        우유
-                        <img class="trash" src="image/trash-can.png" alt="">
-                    </li>
-                </ul>
-            </div>
-            <div class="footer">
-                <input id="list_name" type="text">
-                <img class="plus" src="image/plus.png" alt="">
-            </div>
-        </div>
+      <div class="list">
+          <header class="header">
+              Shopping list
+          </header>
+         <div class="item__row">
+              <ul class="items">
+                  <!-- <li class="item">
+                      <span class="item__name">Egg</span>
+                      <button class="item__delete"><img src="image/trash-can.png" alt=""></button>
+                  </li>
+              <div class="item__divider"></div> -->
+              </ul>
+         </div>
+         <footer class="footer">
+             <input type="text" class="footer__input">
+             <button class="footer__btn"><img src="image/plus.png" alt=""></button>
+         </footer>
+      </div>
 </body>
 </html>

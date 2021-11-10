@@ -41,6 +41,11 @@ button {
     border-radius: 20px 20px 0 0;
 }
 
+.shopping_list {
+    width: 450px;
+    background-color: #e7e7e7;
+}
+
 .items {
     height: 500px;
     overflow-y: auto;
@@ -49,7 +54,15 @@ button {
 .item {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 10px;
+    padding: 10px 0;
+}
+
+.item__name {
+    font-weight: bold;
+}
+
+.item__divider {
+    border-bottom: 1px solid #333;
 }
 
 .item__delete {
