@@ -15,32 +15,22 @@ function onAdd() {
     input.focus();
 }
 
+let id = 0; //UUID
 function createItem(text) {
     const itemRow = document.createElement('li'); 
     itemRow.setAttribute('class', 'item__row');
-
-    const item = document.createElement('div');
-    item.setAttribute('class', 'item');
-
-    const name = document.createElement('span');
-    name.setAttribute('class', 'item__name');
-    name.innerText = text;
-
-     const deleteBtn = document.createElement('button');
-     deleteBtn.setAttribute('class', 'item__delete');
-     deleteBtn.innerHTML = '<img src="image/trash-can.png" alt="">'
-     deleteBtn.addEventListener('click', () => {
-        items.removeChild(itemRow);  
-     });
-
-     const divide = document.createElement('div');
-     divide.setAttribute('class', 'item__divider');
-
-     item.appendChild(name);
-     item.appendChild(deleteBtn);
-
-     itemRow.appendChild(item);
-     itemRow.appendChild(divide);
+    itemRow.innerHTML = `
+            <li class="item__row" data-id=${id}>
+                  <div class="item">
+                      <div class="item__name">${text}</div>
+                      <button class="item__delete" data-id=${id}>
+                          <img src="image/trash-can.png" alt="">
+                      </button>
+                  </div>
+                  <div class="item__divider"></div>
+              </li>
+              `;
+    id++;
      return itemRow;
 }
 
@@ -52,4 +42,8 @@ input.addEventListener('keypress', event => {
     if (event.key === 'Enter') {
         onAdd();
     };
+});
+
+items.addEventListener('click', event => {
+    console.log('he');
 });
